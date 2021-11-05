@@ -1,21 +1,10 @@
 # MoonTrekTelescopeV2
 Upload pictures of the moon to our server that runs with Django 
 
-#### Team Lead - Nicolas Ojeda 
+#### Team Leads - Matthew Johnson & Tony Hong Jr.
 
-#### Communications/Customer Relations Lead - Alex Lamb
+#### 
 
-#### Computer Vision Lead - Elvira Sakalenka
-
-#### Front End Graphics Lead - Gerard Rosario
-
-#### Front End Tech Lead - Pavit Chawla 
-
-#### Back End Lead - Albert Ramirez 
-
-#### Development (Graphics Model) - Kevin Aguilera 
-
-#### QA/Testing Lead - Jacob Frausto
 
 #### Liaison - Natalie Gallegos
 
