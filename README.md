@@ -3,7 +3,7 @@ Upload pictures of the moon to our server that runs with Django
 
 #### Team Leads - Matthew Johnson & Tony Hong Jr.
 
-#### 
+#### Software Engineers - Byron G., Cindel L., Daniel G., Jason F., Niloy A., Eduardo G., Jingchao F., Jonathan N.
 
 
 #### Liaison - Natalie Gallegos
