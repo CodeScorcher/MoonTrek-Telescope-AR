@@ -18,7 +18,7 @@
 #### 3D Modeling Team - Eduardo C. & Jingchao F.
 
 
-# DGoal : 
+# Goal : 
 
 Build upon the previous Moon Trek Django-web application where the user shall capture an image of the Moon from their own telescope or shall upload a corresponding image of the Moon into the web application.
 
