@@ -122,3 +122,21 @@ function showSlides(n) {
   slides[slideIndex-1].style.display = "block";
   dots[slideIndex-1].className += " active";
 }
+
+function showAndHideSlides(n){
+  var elem = document.getElementById("GuideButton");
+  var slides = document.getElementsByClassName("mySlides");
+  if (elem.innerHTML =="Hide Guide"){
+   elem.innerHTML  = "Show Guide";
+  }
+  else{
+  elem.innerHTML  = "Hide Guide";
+  showSlides(slideIndex = n);
+  }
+  if (slides[slideIndex-1].style.display == "none")  {
+  slides[slideIndex-1].style.display = "block"
+  }
+  else slides[slideIndex-1].style.display = "none";
+
+
+}
