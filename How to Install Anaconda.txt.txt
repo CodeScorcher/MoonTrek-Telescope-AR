@@ -1,0 +1,33 @@
+•	Getting Started:
+ 
+•	Getting through the License Agreement:
+ 
+•	Select Installation Type: Select Just Me if you want the software to be used by a single User
+ 
+•	Choose Installation Location:
+ 
+•	Advanced Installation Option:
+ 
+•	Getting through the Installation Process:
+ 
+•	Finishing up the Installation:
+ 
+Working with Anaconda:
+
+1.	Navigate to the left pane.
+2.	Select the “Environments” selection.
+
+3.	On the next inner pane navigate to the bottom of the page and click on the Import.
+
+4.	Navigate to your .YAML file. And load it up in the Local Drive and name is “MoonTrek”
+5.	Click on the arrow located like the image below.
+ 
+6.	With the Virtual Environment now set up, and within a command prompt locate your MoonTrek directory.
+ 	
+7.	Unpack the .rar file of MoonTrekTelescopeV2-Final to another file.
+
+8.	%Directory% \MoonTrekTelescopeV2-Final\MoonTrekTelescopeV2\
+Similar to the bottom prompt.
+ 
+9.	Then run the command “python manage.py runserver”
+10.	And navigate to the webpage “http://127.0.0.1:8000/”
