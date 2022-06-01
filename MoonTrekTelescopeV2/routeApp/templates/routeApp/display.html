@@ -49,9 +49,9 @@
                           // Ynew =lat*(halfSize/(-65)) +halfSize
 
                       };
-
+                      // resizing image
                       imgObj.src = '{% static image_path %}';
-                      ctx.fillRect(400,400,100,100); // fill in the pixel at (10,10)
+
 
                       //canvas.addEventListener('click', greyscale);
                       canvas.addEventListener('click', getLatLon);
@@ -558,6 +558,13 @@
     </head>
        <body id="page-top">
         <!-- Navigation-->
+         <div id="stars"></div>
+        <div id="stars2"></div>
+        <div id="stars3"></div>
+        <div id="title">
+         </div>
+
+
         <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
            <div class="container">
                 <img src="{% static 'moontrek_frontend-main/startbootstrap-grayscale-gh-pages/assets/img/nasa.png' %}"  alt="" width=50px>
@@ -569,11 +576,13 @@
                     <i class="fas fa-bars"></i>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
-                    <ul class="navbar-nav ml-auto">
+                       <ul class="navbar-nav ml-auto">
 <!--                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">About</a></li>-->
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href=" {% url 'routeApp:index' %} ">Home</a></li>
+                          <li class="nav-item"><a class="nav-link js-scroll-trigger" href=" {% url 'routeApp:index' %} ">Home</a></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href=" {% url 'routeApp:upload' %} ">Upload</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#signup">About</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{% url 'routeApp:about' %}">About</a></li>
+               		<li class="nav-item"><a class="nav-link js-scroll-trigger" href=" {% url 'routeApp:connect' %} ">Connect</a></li>
+			<li class="nav-item"><a class="nav-link js-scroll-trigger" href=" {% url 'routeApp:3d_model' %} ">3D Model</a></li>
 
                 </button>
                     </ul>
@@ -583,89 +592,73 @@
         <!-- Masthead-->
 
 
+
         <!--        End     -->
 
         <section class="image-information text-center" id="about">
+
+
           <!-- Start main Row -->
           <div class="container">
-            <div class="row bg-dark">
+            <div class=" row"  >
               <!-- Left Button Group -->
-              <div class="col">
-              <div class="col btn-group-vertical">
-                <button class="btn btn-danger btn-sm" id="button-annotate-craters"> Craters </button>
-                <button class="btn btn-info btn-sm" id="button-annotate-mares"> Mare </button>
-                <button class="btn btn-light btn-sm"  id="button-annotate-landing">Landing Sites</button>
-                  <br>
-                <button class="btn btn-warning btn-sm"  id="button-reset">Reset</button>
-                <br>
-              </div>
-              <div class="col bg-dark ">
-                <div class="col btn-group-vertical">
-                  <button class="accordion " width = "100%">Craters</button>
-                <div class="panel">
+              <div class="col-4">
+                 <div class="d-flex flex-column">
+                    <button class="btn text-white" id="button-annotate-craters"> Craters </button>
+                  <div>
                     <div id="crater-list">
                     </div>
                 </div>
-
-                <button class="accordion" width = "100%">Mares</button>
-                <div class="panel">
+                <button class="btn text-white" id="button-annotate-mares"> Maria </button>
+                   <div>
                     <div id="mares-list">
                     </div>
                 </div>
-
-                <button class="accordion" width = "100%">Landing Sites</button>
-                <div class="panel">
+                <button class="btn text-white"  id="button-annotate-landing">Landing Sites</button>
+                   <div>
                     <div id='landing-list'>
-                    </div>
-                </div>
-                </div> <!-- End Accordion Buttons-->
 
-                  <div class="col " >
+              </div>
 
-
-                    <div  >
-                        <div class="text-box text-wrap">
-                          <!-- <h3>Description</h3> -->
-
-                        </div>
-
-                        <div class="container-description text-wrap "  id="selected-item" >
-        <!-- this is the section that gets populated dynamically with the descriptiuons as user selects options -->
-                          </div>
-                    </div>
                 </div>
 
+                  <br>
+                <button class="btn text-white"  id="button-reset">Reset</button>
               </div>
               </div><!--End Left Button Group-->
 
               <!-- Where the image is displayed -->
-              <div class="col-md-6">
-              <canvas id="my-canvas" ></canvas>
-              <!-- <p>Text</p> -->
-              <div class="row ">
-                <div id="coord" ></div>
-              </div>
-              </div> <!--End of displayed Canvas -->
+              <div class="col-md-8 containerInfo"><h2 class="text-white">Moon</h2>
+              <canvas id="my-canvas"></canvas>
+                   <div class="container-sm text-wrap" style="color:white"   id="selected-item" >
+        <!-- this is the section that gets populated dynamically with the descriptiuons as user selects options -->
+                   </div>
+                    </div>
 
-              <!-- Right button container -->
-              <div class="col-md-3">
-                </div> <!-- End of Right Button Container-->
+                <div>
+
+                </div>
+
+
+
+
+
 
             </div>
           </div><!-- End of  Main Row-->
 
-            <div class="container">
-              <!-- <div class="row border">
+            <div class="container-fluid">
+              <!-- <div class="row border"> -->
                 <!-- Some stuff goes in this row -->
-              </div> -->
-                <div class="row ">
+              </div>
+                <div class="rowTwo ">
 
                     <div class="col-lg-14 mx-auto">
                     <h2 class="text-white mb-4"><b></b></h2>
-                        <div class="container-lg">
+                        <div class="container-fluid">
 <!--                        accordion-->
-                        <button class="accordion" width = "70%">Registration</button>
-                        <div class="panel">
+                        <button class="accordion text-white">Registration</button>
+                        <div class = "row">
                             <img src= '{% static image_path1 %}' >
                         </div> <!--End accordion-->
 
@@ -674,6 +667,7 @@
                 </div>
 
             </div>
+
 
 
         </section>
@@ -687,5 +681,5 @@
         <!-- Core theme JS-->
         <script src="{% static 'moontrek_frontend-main/startbootstrap-grayscale-gh-pages/js/scripts.js' %}" ></script>
     </body>
-    </body>
+
 </html>

@@ -11,41 +11,46 @@ from .processing.imageProcedure import RoutedImageCapture
 # Create your views here.
 
 def displayView(request):
+    #try catch used to catch some errors thrown from imageProcedure
+    try:
+        capture = RoutedImageCapture ()
+        roots = capture.processUserImage()
+        processed_degree_data = capture.processDegreeData()
 
-
-    capture = RoutedImageCapture ()
-
-    roots = capture.processUserImage()
-
-    processed_degree_data = capture.processDegreeData()
-
-    my_dict = {
-        'image_path' : roots[0],
-        'image_path1': roots[1],
-        'degree_data': processed_degree_data,
-    }
-
-    return render(request,'routeApp/display.html', context=my_dict)
+        my_dict = {
+            'image_path' : roots[0],
+            'image_path1': roots[1],
+            'degree_data': processed_degree_data,
+        }
+        return render(request,'routeApp/display.html', context=my_dict)
+    except:
+        return retry(request)
 
 
 
 
 def upload (request):
+    print(request)
     if request.method == "POST":
         form = MoonPostForm(request.POST,request.FILES)
         if form.is_valid():
             form.save()  # saves to database
             #check the compression rate
-            img = PIL.Image.open(MoonPost.objects.last().user_image)
-            wid, hgt = img.size
-            sizeOfImageBytes = os.path.getsize('/Users/nicolasojeda/Desktop/MoonTrekTelescopeV2/MoonTrekTelescopeV2/media/'+ str(MoonPost.objects.last().user_image))
-            compRate = wid * hgt / sizeOfImageBytes
+            #img = PIL.Image.open(MoonPost.objects.last().user_image)
+            #wid, hgt = img.size
+            #sizeOfImageBytes = os.path.getsize('/Users/Byron Sly/Desktop/MoonTrek-Telescope-AR/MoonTrekTelescopeV2/media/'+ str(MoonPost.objects.last().user_image))
+            #compRate = wid * hgt / sizeOfImageBytes
+            # print(wid)
+            # print(hgt)
+            # print(sizeOfImageBytes)
+            # print(compRate)
             # print (compRate)
-            if compRate > 6:
-                return retry(request) #image will not pass registration or is too blurry
-            else:
+            # if compRate > 7:
+            #     return retry(request) #image will not pass registration or is too blurry
+            # else:
             # now we go to the first page ?
-                return displayView(request)
+            #print(request)
+            return displayView(request)
     else:
         form = MoonPostForm()
 
@@ -68,6 +73,10 @@ def index(request):
 
     return render(request,'routeApp/index.html', context = { })
 
+def about(request):
+
+    return render(request,'routeApp/about.html', context = { })
+
 def display3DModel(request):
 
     model_dic= {
@@ -76,9 +85,36 @@ def display3DModel(request):
     return render(request, "routeApp/generic3Dmodel.html", context=model_dic)
 
 
+def connect(request):
+    if request.method == "POST":
+        form = MoonPostForm(request.POST,request.FILES)
+        if form.is_valid():
+            form.save()  # saves to database
+            #check the compression rate
+            #img = PIL.Image.open(MoonPost.objects.last().user_image)
+            #wid, hgt = img.size
+            #sizeOfImageBytes = os.path.getsize('/Users/Byron Sly/Desktop/MoonTrek-Telescope-AR/MoonTrekTelescopeV2/media/'+ str(MoonPost.objects.last().user_image))
+            #compRate = wid * hgt / sizeOfImageBytes
+            # print(wid)
+            # print(hgt)
+            # print(sizeOfImageBytes)
+            # print(compRate)
+            # print (compRate)
+            # if compRate > 7:
+            #     return retry(request) #image will not pass registration or is too blurry
+            # else:
+            # now we go to the first page ?
+            #print(request)
+            return displayView(request)
+           
+    else:
+        form = MoonPostForm()
 
+    my_form = {
+        'upload_form': form
+    }
 
-
+    return render(request,'routeApp/connect.html', context = { })
 
 
 

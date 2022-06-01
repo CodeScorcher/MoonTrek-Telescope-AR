@@ -1,0 +1,126 @@
+
+<!--main upload html page where the file is sent in the url as POST request -->
+<!--This is where you can add bootstrap or css front end stuff -->
+<!--<html>-->
+<!--<head>-->
+<!--    {% load static %}-->
+<!--</head>-->
+<!--<body>-->
+
+<!--            <form method="post" enctype="multipart/form-data">-->
+<!--                {% csrf_token %}-->
+<!--                {{ upload_form.as_p }}-->
+
+<!--                <button type="submit" class="button">Submit Your Photo Here</button>-->
+
+<!--            </form>-->
+
+<!--</body>-->
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<!--    head -->
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+    <title>Upload</title>
+    <link rel="icon" type="image/x-icon"
+          href="{% static 'moontrek_frontend-main/startbootstrap-grayscale-gh-pages/assets/img/favicon.ico' %}"/>
+    <!-- Font Awesome icons (free version)-->
+    <script src="https://use.fontawesome.com/releases/v5.15.1/js/all.js" crossorigin="anonymous"></script>
+    <!-- Google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+          rel="stylesheet"/>
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="{% static 'moontrek_frontend-main/startbootstrap-grayscale-gh-pages/css/styles.css' %}"
+          rel="stylesheet"/>
+</head>
+
+<!--    end head-->
+
+
+<!--    main body -->
+<body id="page-top">
+<!-- Nav Bar-->
+<nav class="navbar navbar-expand-lg navbar-light fixed-top border-bottom border-primary" id="mainNav">
+    <div class="container">
+        <img src="{% static 'moontrek_frontend-main/startbootstrap-grayscale-gh-pages/assets/img/nasa.png' %}" alt=""
+             width=50px>
+
+        <a class="navbar-brand js-scroll-trigger" href="#page-top">MoonTrek Telescope 2.0</a>
+        <img src="{% static 'moontrek_frontend-main/startbootstrap-grayscale-gh-pages/assets/img/csula.png' %}" alt=""
+             width=50px>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+                data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+                aria-label="Toggle navigation">
+            Menu
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+             <ul class="navbar-nav ml-auto">
+                 <li class="nav-item"><a class="nav-link js-scroll-trigger" href=" {% url 'routeApp:index' %} ">Home</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href=" {% url 'routeApp:upload' %} ">Upload</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{% url 'routeApp:about' %}">About</a></li>
+               		<li class="nav-item"><a class="nav-link js-scroll-trigger" href=" {% url 'routeApp:connect' %} ">Connect</a></li>
+			<li class="nav-item"><a class="nav-link js-scroll-trigger" href=" {% url 'routeApp:3d_model' %} ">3D Model</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<!--        end navbar-->
+
+<!-- Masthead-->
+<header class="space-background">
+
+    <div class="container-fluid d-flex h-100 align-items-center">
+        <!--                first panel-->
+        <div class="row">
+            <div class="mx-auto text-center border-danger border-left border-right border-bottom border-top bg-light col-lg-5">
+                <div class="intro">
+          <div class="polaroid1">
+    <img src= "{% static 'moontrek_frontend-main/startbootstrap-grayscale-gh-pages/assets/img/Team.jpg' %}"  alt="" height="100%" width="100%">
+              <div class="caption">
+                <p>The MoonTrek Team</p>
+              </div>
+          </div>
+                    <p>MoonTrek is a collaborative project between Jet Propulsion Laboratory (JPL) and the Senior Design Team of Cal State LA Students. Together we aim to achieve an application to simplify and bridge the gap between someone's photo of a moon that was taken by themselves or from someone else and display useful information such as Craters, Maria, and Apollo Landing Sites on the moon.</p>
+        </div>
+                <div class="middle">
+          <div class="polaroid2">
+    <img src= "{% static 'moontrek_frontend-main/startbootstrap-grayscale-gh-pages/assets/img/TelescopeGroup1.png' %}"  alt="" height="100%" width="100%">
+            <div class="caption2">
+              <p>Moontrek Group Observing The Moon</p>
+            </div>
+          </div>
+                    <p>Our project was split into four sections: Telescope Integration, focusing on implementing a live feed from a telescope to Moontrek. 3D Modeling, focusing on creating an interactive 3D model of the Sun, Moon, and Earth based off the uploaded Moon Image. Image Registration, focusing on fine-tuning the algorithms used to detect coordinates on the moon to display a proper image of the moon. User Interface, focusing on creating a seamless and simple to use interface that is both quick and easy to use.</p>
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </div>
+    </div>
+    </div>
+
+
+</header>
+
+<!-- Bootstrap core JS-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Third party plugin JS-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+<!-- Core theme JS-->
+<script src="{% static 'moontrek_frontend-main/startbootstrap-grayscale-gh-pages/js/scripts.js' %}"></script>
+</body>
+</html>
+
+
+

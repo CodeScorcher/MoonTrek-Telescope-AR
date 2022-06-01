@@ -18,11 +18,15 @@ app_name = 'routeApp'
 
 from django.urls import path
 from routeApp import views
+from django.conf import settings
+from django.conf.urls.static import static
 
 
 urlpatterns = [
     path('', views.index, name='index'),
     path('upload/', views.upload, name='upload'),
+    path('about/', views.about, name='about'),
+    path('connect/', views.connect, name='connect'),
     path('3d_model/', views.display3DModel, name="3d_model")
 
-]
+]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

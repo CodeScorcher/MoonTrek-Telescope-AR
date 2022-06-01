@@ -1,0 +1,288 @@
+<!--</body>-->
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<!--    head -->
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+    <title>Connect</title>
+    <link rel="icon" type="image/x-icon"
+          href="{% static 'moontrek_frontend-main/startbootstrap-grayscale-gh-pages/assets/img/favicon.ico' %}"/>
+    <!-- Font Awesome icons (free version)-->
+    <script src="https://use.fontawesome.com/releases/v5.15.1/js/all.js" crossorigin="anonymous"></script>
+    <!-- Include from the CDN -->
+    <script src=
+                    "https://cdn.jsdelivr.net/npm/html2canvas@1.0.0-rc.5/dist/html2canvas.min.js">
+    </script>
+    <script src="https://superal.github.io/canvas2image/canvas2image.js"></script>
+
+
+    <!-- Google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+          rel="stylesheet"/>
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="{% static 'moontrek_frontend-main/startbootstrap-grayscale-gh-pages/css/styles.css' %}"
+          rel="stylesheet"/>
+</head>
+
+<!--    end head-->
+
+
+<!--    main body -->
+<body id="page-top" class="image-information">
+<!-- Nav Bar-->
+<div id="stars"></div>
+        <div id="stars2"></div>
+        <div id="stars3"></div>
+        <div id="title">
+         </div>
+
+
+<nav class="navbar navbar-expand-lg navbar-light fixed-top border-bottom border-primary" id="mainNav">
+    <div class="container">
+        <img src="{% static 'moontrek_frontend-main/startbootstrap-grayscale-gh-pages/assets/img/nasa.png' %}" alt=""
+             width=50px>
+
+        <a class="navbar-brand js-scroll-trigger" href="#page-top">MoonTrek Telescope 2.0</a>
+        <img src="{% static 'moontrek_frontend-main/startbootstrap-grayscale-gh-pages/assets/img/csula.png' %}" alt=""
+             width=50px>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+                data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+                aria-label="Toggle navigation">
+            Menu
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                 <li class="nav-item"><a class="nav-link js-scroll-trigger" href=" {% url 'routeApp:index' %} ">Home</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href=" {% url 'routeApp:upload' %} ">Upload</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{% url 'routeApp:about' %}">About</a></li>
+               		<li class="nav-item"><a class="nav-link js-scroll-trigger" href=" {% url 'routeApp:connect' %} ">Connect</a></li>
+			<li class="nav-item"><a class="nav-link js-scroll-trigger" href=" {% url 'routeApp:3d_model' %} ">3D Model</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<!--        end navbar-->
+
+<!-- Masthead-->
+<section class="image-information">
+    <div class="container-fluid d-flex h-100" style="justify-content:space-around">
+
+
+        <!--          panel-->
+        <div class="row col-lg-5 justify-content-center">
+
+
+            <h3 class="mx-2 my-0 text-uppercase" style="color:red">Live Feed </h3>
+            <!--                    <input type ="image" class="moonButton" src="{% static 'moontrek_frontend-main/startbootstrap-grayscale-gh-pages/assets/img/moon1.png' %}"  alt="" width="40%" href="#about">-->
+            <!--&lt;!&ndash;                    <img src="assets/img/moon1.png" width = "40%">&ndash;&gt;-->
+            <div class="container text-center row-cols-3" id="liveFeed">
+                <!--                <p><input type="file" accept="image/*" name="image" id="file" class="" onchange="loadFile(event)"-->
+                <!--                          style="display: none;"></p>-->
+
+                <!--                <img src="{% static 'moontrek_frontend-main/startbootstrap-grayscale-gh-pages/assets/img/Moon+placeholder(7sc8BwjeFwY).png' %}"-->
+                <!--                     class="fixedSize moonButton" id="liveFeed" alt="lightMoon" width="80%">-->
+                <img src="{% static 'moontrek_frontend-main/startbootstrap-grayscale-gh-pages/assets/img/lightMoon.png' %}"
+                     class="fixedSize moonButton" id="liveFeedPic" alt="lightMoon" width="100%">
+<!--                                <iframe width="560" height="315" src="https://www.youtube.com/embed/6AviDjR9mmo" id="liveFeedVid" title="YouTube video player"-->
+<!--                                        frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"-->
+<!--                                        allowfullscreen></iframe>-->
+
+            </div>
+
+            <div class="ring my-4" id="loadingRing"></div>
+            <div class="d-flex flex-column p-3"> <!--this is main div for second section -->
+
+
+                <form method="post" enctype="multipart/form-data" accept="image/*" name="image" id="file"
+                      onchange="loadFile(event)">
+<!--                    {% csrf_token %}-->
+<!--                    {{ upload_form.as_p }}-->
+
+                    <!--                    <button class="btn btn-outline-light btn-info wide-button " onclick="spinRing()" type="submit">-->
+                    <!--                        Capture Photo-->
+                    <!--                    </button>-->
+                    <button class="btn btn-outline-light btn-info  " onclick="spinRing()" type="">
+                        Connect to Device
+                    </button>
+
+
+                </form>
+
+
+                <button class="btn btn-outline-light btn-info " onclick="takeshot()"> Take Screenshot</button>
+<!--                <button class="btn btn-outline-light btn-info wide-button " onclick="snap()"> Take Screenshot</button>-->
+
+
+                <button class="btn btn-outline-light btn-info  " onclick="save()">
+                    Save
+                </button>
+
+
+                    <div id="imgOutput" class="justify-content-center"></div>
+        </div>
+
+                <!--                            <a class ="btn btn-outline-light wide-button btn-dark">Metadata</a>-->
+                <!--                        <a class ="btn btn-outline-light btn-info wide-button">Upload</a>-->
+            </div>
+
+            <p id="pic-info"></p>
+            <!--                    <p class="px-auto my-0">EXIF Data : none </p>-->
+
+        <!--                end panel-->
+
+
+        <!--                second panel-->
+        <div class="row col-lg-3 justify-content-center d-flex">
+
+
+            <h3 class="mx-2 my-0 text-uppercase" style="color:red">Your upload </h3>
+            <div class="container text-center row-cols-3">
+
+                <img src="{% static 'moontrek_frontend-main/startbootstrap-grayscale-gh-pages/assets/img/Moon+placeholder(7sc8BwjeFwY).png' %}"
+                     class="fixedSize moonButton" id="output" alt="lightMoon" width="80%">
+
+            </div>
+
+            <div class="ring my-4" id="loadingRing2"></div>
+            <div>
+
+
+                <form method="post" enctype="multipart/form-data" accept="image/*" name="image" id="file"
+                      onchange="loadFile(event)">
+
+
+                    <input type="hidden" name="csrfmiddlewaretoken" value="o0vsQ8SgupNZsSfKrawAGDi3UO9f49dDcnzYGYdVttUDrZFSJVlTgqnQkaIKBPtt">
+
+                    <p><label for="id_user_image" style="color:white">User image:</label> <input type="file" style="color:white" name="user_image" accept="image/*" required="" id="id_user_image"></p>
+                      {% csrf_token %}
+                 {{ upload_form.as_p }}
+
+                    <button class="btn btn-outline-light btn-info wide-button" onclick="spinRing()" type="submit">
+                        Upload
+                    </button>
+
+                </form>
+                <!--                            <a class ="btn btn-outline-light wide-button btn-dark">Metadata</a>-->
+                <!--                        <a class ="btn btn-outline-light btn-info wide-button">Upload</a>-->
+            </div>
+
+            <br>
+
+            <p id="pic-info"></p>
+            <!--                    <p class="px-auto my-0">EXIF Data : none </p>-->
+
+
+        </div>
+        <!--                end second panel-->
+
+    </div>
+    <script type="text/javascript">
+		// Takes a snapshot of the video
+		function snap() {
+
+				// Get handles on the video and canvas elements
+        var video = document.getElementById('liveFeedPic').src;
+
+		// var video = document.querySelector('liveFeedVid');
+		var canvas = document.querySelector('canvas');
+		// Get a handle on the 2d context of the canvas element
+		var context = canvas.getContext('2d');
+		// Define some vars required later
+		var w, h, ratio;
+
+		// Add a listener to wait for the 'loadedmetadata' state so the video's dimensions can be read
+<!--		video.addEventListener('loadedmetadata', function() {-->
+			// Calculate the ratio of the video's width to height
+			// ratio = video.videoWidth / video.videoHeight;
+           ratio = 560 / 340;
+
+			// Define the required width as 100 pixels smaller than the actual video's width
+			 //w = video.videoWidth - 100;
+            w = 560;
+
+			// Calculate the height based on the video's width and the ratio
+			h = parseInt(w / ratio, 10);
+			// Set the canvas width and height to the values just calculated
+			canvas.width = w;
+			canvas.height = h;
+<!--		}, false);-->
+
+
+			// Define the size of the rectangle that will be filled (basically the entire element)
+			context.fillRect(0, 0, w, h);
+			// Grab the image from the video
+			context.drawImage(video, 0, 0, w, h);
+		}
+
+<!--        function createImageChild(name) {-->
+<!--            let image -->
+<!--        }-->
+
+        // Define the function to screenshot the div
+        function takeshot() {
+            let div =
+                document.getElementById('liveFeedPic');
+
+            let parentNode = document.getElementById('imgOutput');
+            if(parentNode.hasChildNodes()){
+                parentNode.removeChild(parentNode.firstElementChild);
+            }
+
+            // Use the html2canvas function to take a screenshot and append it to the output div
+            html2canvas(div).then(
+                function (canvas) {
+                    document
+                    .getElementById('imgOutput')
+                    .appendChild(Canvas2Image.convertToPNG(canvas, canvas.width, canvas.height))
+                    .setAttribute("id", "id_user_image");
+<!--                    .setAttribute("name", "user_image");-->
+                })
+
+        }
+
+        function save(){
+            let div = document.getElementById('liveFeedPic');
+            let parentNode = document.getElementById('imgOutput');
+
+            if(parentNode.hasChildNodes()){
+                let child = parentNode.firstElementChild;
+                // Use the html2canvas function to take a screenshot and append it to the output div
+                html2canvas(child).then(
+                    function (canvas) {
+                        let canvasWidth = canvas.width;
+                        let canvasHeight = canvas.height;
+
+                        if(canvasWidth < 250){
+                            canvasWidth *= 4;
+                            canvasHeight *= 4;
+                        }
+                        Canvas2Image.saveAsPNG(canvas, canvasWidth, canvasHeight);
+                    })
+            }
+
+
+        }
+
+
+
+
+
+    </script>
+
+</section>
+
+<!-- Bootstrap core JS-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Third party plugin JS-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+<!-- Core theme JS-->
+<script src="{% static 'moontrek_frontend-main/startbootstrap-grayscale-gh-pages/js/scripts.js' %}"></script>
+</body>
+</html>
