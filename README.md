@@ -1,7 +1,7 @@
 # Moon Trek Telescope AR
 
-## This repo will be deprecated as this was our CSULA Capstone project.
-## This will serve as a paper trail to see how far the next team has come.
+### This repo will be deprecated as this was our CSULA Capstone project.
+### This will serve as a paper trail to see how far the next team has come.
 
 #### Liaison - Natalie Gallegos
 
